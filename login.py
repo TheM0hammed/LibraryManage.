@@ -130,7 +130,7 @@ class LoginWidget(QDialog):
                         global authorss
                         conn.cursor.execute("SELECT name FROM author")
                         authorss = [author[0] for author in conn.cursor.fetchall()]
-
+                        return authorss
 
 
 
@@ -182,7 +182,7 @@ class LoginWidget(QDialog):
                             # Loop through the rows and insert each book into the treeview
                             for row in conn.getAll():
                                 my_tree.insert('', 'end', text=row[0], values=(row[1], row[2], row[3]))
-
+                            updateauth()
                     def CheckToAdd(Author):
                             conn.cursor.execute("SELECT id FROM author WHERE name = %s", (Author.name,))
                             author_id = conn.cursor.fetchone()
@@ -226,7 +226,10 @@ class LoginWidget(QDialog):
                         add_button.pack(padx=5, pady=5)
                         back_button.pack(padx=5, pady=5)
                         getauth()
+                        updateAllAuthors()
                     #----------------------------------------------------------------------------------------------------------------------------------
+                    def updateauth():
+                         authorchoosen.config(values=getauth())
                     def open_form():
                         def getvalues():
                             ktab = Book(title_entry.get(),author_entry.get(),year_entry.get())
@@ -292,7 +295,7 @@ class LoginWidget(QDialog):
                     authorchoosen = ttk.Combobox(frame,values=[], width = 27, textvariable = n)
                     conn.cursor.execute("SELECT name FROM author")
                     authorsss = [author[0] for author in conn.cursor.fetchall()]
-                    authorchoosen.config(values=authorsss)
+                    authorchoosen.config(values=getauth())
                     authorchoosen.pack()
                     Search1_button=tk.Button(frame,text="Search",command=show_search_auth,width=18,height=1)
                     Search1_button.pack( padx=5, pady=5)
