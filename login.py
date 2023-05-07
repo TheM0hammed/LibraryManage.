@@ -264,7 +264,7 @@ class LoginWidget(QDialog):
                     #-------------------------------------------------------------------------------------------------
                     frame=tk.Tk()
                     frame.geometry("1600x500")
-                    frame.title("task manager")
+                    frame.title("LIBRARY MANAGEMENT")
 
                     my_tree=ttk.Treeview(frame,columns=("Titre","Auteur","Date de Pub"))
                     my_tree.heading("#0",text="ID")
