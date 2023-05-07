@@ -1,4 +1,8 @@
 # LibraryManage.
+the folder 'gb' is the Database used.
+-----------------------------------------------------THE APP------------------------------------------------------
+
+
 The "mainwindow.py" file defines the main window of the application. It creates three buttons: "Login," "Sign Up," and "About." The buttons are connected to slots (functions) that handle their respective actions. The main window also sets a background image and defines its layout.
 
 The signup method is responsible for handling the sign-up logic. It retrieves the entered username and password from the line edits. It then defines a salt value, which is a fixed string used for password hashing. The password is hashed using the hashlib library, specifically the SHA256 algorithm, by concatenating the password with the salt and computing the hash. This ensures that even if two users have the same password, their hashed passwords will be different.
