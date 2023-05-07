@@ -53,7 +53,6 @@ class MyWindow(QWidget):
     def show_login_dialog(self):
         login_dialog = LoginWidget()
         result = login_dialog.exec_()
-        self.close()
         if result == QDialog.Accepted:
             print("Login accepted")
         else:
@@ -64,7 +63,6 @@ class MyWindow(QWidget):
         print("Showing signup page")
         signup_dialog = SignupWidget()
         result = signup_dialog.exec_()
-        self.close()
         if result == QDialog.Accepted:
             print("Signup accepted")
         else:
